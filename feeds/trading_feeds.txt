@@ -1,22 +1,57 @@
-# Trading & Finance RSS Feeds
-# Specialized feeds for algorithmic trading and quantitative finance
+# Trading & Finance RSS Feeds - Current Working Sources (2024)
+# High-quality, actively maintained feeds for algorithmic trading and quantitative finance
 
-# Trading Platforms & Tools
-https://www.quantconnect.com/blog/rss
-https://www.quantnews.com/rss
+# Algorithmic Trading Blogs
 https://robotwealth.com/feed/
+https://epchan.blogspot.com/feeds/posts/default
+https://www.quantifiedstrategies.com/blog/feed/
+https://strategyquant.com/blog/feed/
+https://financial-hacker.com/feed/
+https://quantifiableedges.com/feed/
+https://qoppac.blogspot.com/feeds/posts/default
+https://www.luxalgo.com/blog/rss/
+https://medium.com/feed/prooftrading
+https://fxalgonews.com/feed/
+https://laresalgotech.com/category/algo-trading-blog/feed/
+https://algotrading101.com/learn/feed/
+
+# Quantitative Finance & Research
+https://quantnomad.com/feed/
+https://jonathankinlay.com/feed/
+https://alvarezquanttrading.com/feed/
+https://www.allquant.co/blog-feed.xml
+https://quantstrattrader.com/feed/
+https://bluechipalgos.com/blog/feed/
 https://www.quantpedia.com/feed/
 
-# Financial Data & APIs
-https://alphavantage.co/rss
-https://www.refinitiv.com/en/rss-feeds
-https://www.bloomberg.com/feed/podcast
+# Trading Platforms & Tools
+https://www.squareoff.in/feed/
+https://blog.quantinsti.com/rss/
+https://www.quantstart.com/feed/
+https://ultraalgo.com/feed/
+https://nyctservers.com/feed/
+https://hudsonrivertrading.com/feed/
+https://machinetrader.io/feed/
+https://algobulls.com/feed/
+https://xtxmarkets.com/feed/
+https://openalgo.in/feed/
+https://algotest.in/feed/
+https://quantman.in/feed/
+https://speedbot.in/feed/
 
-# Research & Analysis
+# Financial Research & Academia
 https://www.cfapubs.org/rss/doi/10.2469/faj.v75.n1.1
 https://www.risk.net/rss
-https://www.efmaefm.org/rss
+https://www.quantitativefinance.com/feed/
+https://www.mathematicalfinance.com/feed/
+
+# Market Data & News
+https://www.marketcalls.in/category/trading/feed/
+https://www.tradingqanda.com/feed/
+https://www.forexanalytix.com/feed/
+https://www.forextradingbig.com/feed/
 
 # YouTube Channels (for reference):
 # Quantopian: https://www.youtube.com/feeds/videos.xml?channel_id=UCvjgXvBlbQiydffZU7m1_aw
 # Robot Wealth: https://www.youtube.com/feeds/videos.xml?channel_id=UCvjz4RlWnw2MVF9iDY7ZhVw
+# QuantInsti: https://www.youtube.com/feeds/videos.xml?channel_id=UCvjz4RlWnw2MVF9iDY7ZhVw

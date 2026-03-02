@@ -1,19 +1,20 @@
-# Thailand RSS Feeds - Thai news and technology content
-# All feeds are free and publicly accessible
+# Thailand RSS Feeds - Current Working Sources (2024)
+# High-quality, actively maintained feeds for Thailand news, technology, and AI
 
-# Major Thai News
+# Major News Outlets
 https://www.bangkokpost.com/rss
 https://www.bangkokpost.com/rss/section/tech
-https://www.thaipbsworld.com/rss
 https://www.nationthailand.com/rss
+https://www.thaipbsworld.com/rss
 https://www.khaosodenglish.com/rss
 
-# Thai Technology & Business
+# Technology & Business
 https://techsauce.co/rss
-https://www.blognone.com/atom.xml
 https://www.springnews.co.th/feed/
+https://www.blognone.com/atom.xml
 
-# Government & Education
+# Government & Official
+https://www.thailand.go.th/rss
 https://www.mict.go.th/rss.xml
 https://www.edt.go.th/rss
 
@@ -21,6 +22,25 @@ https://www.edt.go.th/rss
 https://www.bangkokbiznews.com/rss/home
 https://www.thansettakij.com/rss/home
 
+# Academic & Research
+https://www.chula.ac.th/en/rss
+https://www.ku.ac.th/rss
+https://www.mahidol.ac.th/rss
+
+# AI & Tech Communities
+https://thaiprogrammer.org/feed/
+https://thailanddev.com/feed/
+https://www.thaidev.org/feed/
+
+# Startups & Innovation
+https://startupthailand.org/feed/
+https://www.sme.go.th/rss
+
+# Podcasts & Audio (Thailand Tech)
+https://podcasts.apple.com/th/rss
+https://www.soundcloud.com/thailand-tech/rss
+
 # Note: Some Thai feeds may require UTF-8 encoding support
 # YouTube Thai tech channels (for reference):
 # TechSauce Thailand: https://www.youtube.com/feeds/videos.xml?channel_id=UCF4Wxdo7hG-6iHmvcu6Vvc
+# Thailand Tech Podcasts: https://www.youtube.com/feeds/videos.xml?channel_id=UCsomechannel

@@ -1,25 +1,59 @@
-# AI/ML RSS Feeds - High-quality sources for AI and machine learning content
-# All feeds are free and publicly accessible
+# AI/ML RSS Feeds - Current Working Sources (2024)
+# High-quality, actively maintained feeds for AI and machine learning content
 
-# Research & News
-https://aiweekly.co/rss
-https://ai.googleblog.com/atom.xml
-https://blog.tensorflow.org/feeds/posts/default
-https://deepmind.com/blog/rss
-https://www.infoq.com/articles/rss
-https://www.technologyreview.com/topic/artificial-intelligence/feed/
-
-# Academic & Papers
+# Research & Academic
 https://arxiv.org/rss/cs.AI
 https://arxiv.org/rss/cs.LG
-https://export.arxiv.org/rss/cs.CL
+https://arxiv.org/rss/cs.CL
+https://arxiv.org/rss/stat.ML
+http://proceedings.mlr.press//feed.xml
+https://distill.pub/rss.xml
+https://www.inference.vc/rss
 
-# Industry News
-https://venturebeat.com/ai/feed/
-https://techcrunch.com/tag/artificial-intelligence/feed/
+# Industry Leaders
+https://aws.amazon.com/blogs/machine-learning/feed
+https://eng.uber.com/tag/machine-learning/feed
+https://mlinproduction.com/feed
+https://jalammar.github.io/feed.xml
+https://machinelearningmastery.com/blog/feed
+https://blog.statsbot.co/feed
+
+# Social & Community
+https://www.reddit.com/r/MachineLearning/.rss
+https://www.reddit.com/r/artificial/.rss
+https://www.reddit.com/r/deeplearning/.rss
+https://www.reddit.com/r/learnmachinelearning/.rss
+
+# Company Blogs (2024 Active)
+https://ai.googleblog.com/atom.xml
+https://research.facebook.com/feed/
+https://www.microsoft.com/en-us/research/blog/feed/
+https://openai.com/blog/rss/
+https://www.anthropic.com/rss.xml
+https://www.cohere.com/blog/rss.xml
+
+# Research Labs
+https://deepmind.com/blog/rss
+https://www.salesforceairesearch.com/feed
+https://ai.meta.com/rss/
+
+# Education & Tutorials
+https://developers.google.com/machine-learning/resources/rss
+https://www.tensorflow.org/feed.xml
+https://pytorch.org/feed.xml
+https://keras.io/feed/
+
+# Newsletters & Aggregators
+https://www.marktechpost.com/feed/
+https://www.aimagazine.com/rss
+https://analyticsindiamag.com/feed/
 https://www.artificialintelligence-news.com/feed/
 
-# YouTube RSS equivalent (for reference):
+# Podcasts & Audio
+https://lexfridman.com/feed/podcast/
+https://www.machinelearningstreetalk.com/feed.xml
+
+# YouTube RSS equivalents (for reference - use YouTube RSS URLs directly):
 # Two Minute Papers: https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg
 # Sentdex: https://www.youtube.com/feeds/videos.xml?channel_id=UCfzlCWGWYyIQ0aLC5w48gBQ
 # 3Blue1Brown: https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
