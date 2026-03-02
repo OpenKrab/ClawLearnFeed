@@ -1,0 +1,293 @@
+# ClawFlow Configuration for ClawLearnFeed
+# Personal learning feed aggregator with AI summarization
+# Install with: clawflow install claw-learnfeed
+
+metadata:
+  name: "claw-learnfeed"
+  version: "1.0.0"
+  description: "Personal learning feed aggregator with AI summarization and daily briefings"
+  author: "OpenKrab Community"
+  license: "MIT"
+  repository: "https://github.com/openkrab/claw-learnfeed"
+  documentation: "https://github.com/openkrab/claw-learnfeed#readme"
+
+# Installation steps
+installation:
+  steps:
+    - name: "Clone repository"
+      command: "git clone https://github.com/openkrab/claw-learnfeed.git ~/.openclaw/skills/claw-learnfeed"
+      cwd: "~/.openclaw/skills"
+
+    - name: "Create directories"
+      command: "mkdir -p ~/.openclaw/workspace/.learnings feeds/collected feeds/summarized feeds/history"
+      cwd: "~/.openclaw/skills/claw-learnfeed"
+
+    - name: "Install Python dependencies"
+      command: "pip install feedparser requests pyyaml"
+      cwd: "~/.openclaw/skills/claw-learnfeed"
+
+    - name: "Check Ollama installation"
+      command: "ollama --version || echo 'Please install Ollama from https://ollama.ai'"
+      cwd: "~/.openclaw/skills/claw-learnfeed"
+
+    - name: "Pull default LLM model"
+      command: "ollama pull llama3:8b || echo 'Model pull failed - will be handled at runtime'"
+      cwd: "~/.openclaw/skills/claw-learnfeed"
+
+# Configuration templates
+configuration:
+  templates:
+    - name: "Basic configuration"
+      description: "Default setup for AI/ML learning feeds"
+      content: |
+        topics:
+          - "AI agents"
+          - "LLM RAG systems"
+          - "algorithmic trading"
+          - "data engineering pipelines"
+          - "Thailand AI news"
+          - "Rust security research"
+
+        sources:
+          rss_feeds:
+            - "https://aiweekly.co/rss"
+            - "https://ai.googleblog.com/atom.xml"
+            - "https://www.infoq.com/articles/rss"
+            - "https://www.bangkokpost.com/rss"
+          youtube_channels:
+            - "UCbfYPyITQ-7l4upoX8nvctg"  # Two Minute Papers
+          x_keywords:
+            - "AI Thailand"
+            - "LLM agents"
+
+        ollama:
+          model: "llama3:8b"
+          endpoint: "http://localhost:11434"
+
+        briefing:
+          max_items: 5
+          language: "thai"
+          include_feedback: true
+
+        summarization:
+          max_words: 150
+          language: "thai"
+          relevance_threshold: 0.7
+
+        feedback:
+          learning_rate: 0.1
+          min_weight: 0.1
+          max_weight: 2.0
+          decay_factor: 0.95
+
+    - name: "Thai Developer Focus"
+      description: "Optimized for Thai developers and AI practitioners"
+      content: |
+        topics:
+          - "Thailand AI development"
+          - "Thai tech startups"
+          - "Python programming"
+          - "Machine learning Thailand"
+          - "Data science Thai"
+          - "Open source contributions"
+
+        sources:
+          rss_feeds:
+            - "https://www.bangkokpost.com/rss/section/tech"
+            - "https://www.thaipbsworld.com/rss"
+            - "https://techsauce.co/rss"
+          x_keywords:
+            - "AI Thailand"
+            - "Thai developer"
+            - "Python Thailand"
+
+        briefing:
+          language: "thai"
+          max_items: 4
+
+        summarization:
+          language: "thai"
+
+    - name: "Trading & Finance Focus"
+      description: "Specialized for algorithmic trading and finance"
+      content: |
+        topics:
+          - "algorithmic trading"
+          - "quantitative finance"
+          - "machine learning trading"
+          - "financial data analysis"
+          - "risk management"
+          - "portfolio optimization"
+
+        sources:
+          rss_feeds:
+            - "https://feeds.transistor.fm/ai-daily"
+            - "https://www.quantconnect.com/blog/rss"
+            - "https://alphavantage.co/rss"
+          youtube_channels:
+            - "UCvjgXvBlbQiydffZU7m1_aw"  # Quantopian
+          x_keywords:
+            - "algo trading"
+            - "quant finance"
+            - "ML trading"
+
+        briefing:
+          language: "english"
+          max_items: 6
+
+# Hook registrations for OpenClaw integration
+hooks:
+  bootstrap:
+    - name: "Initialize learning directories"
+      command: "mkdir -p ~/.openclaw/workspace/.learnings"
+      description: "Create learnings directory on agent startup"
+
+    - name: "Display status"
+      command: "echo '🦞 ClawLearnFeed active - Daily learning feeds at 8:00 AM'"
+      description: "Show activation status"
+
+  post_tool_use:
+    - name: "Monitor learning opportunities"
+      command: "python ~/.openclaw/skills/claw-learnfeed/scripts/feedback.py --message \"$CLAUDE_TOOL_OUTPUT\" 2>/dev/null || true"
+      description: "Process potential learning from tool outputs"
+
+# Scheduled tasks
+schedules:
+  - name: "Daily learning feed collection"
+    cron: "0 6 * * *"  # 6:00 AM daily
+    command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/collect_feeds.py --run"
+    description: "Collect fresh content from all sources"
+
+  - name: "Daily content summarization"
+    cron: "0 7 * * *"  # 7:00 AM daily
+    command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/summarize.py --run --store-memory"
+    description: "Summarize and store relevant content"
+
+  - name: "Daily briefing delivery"
+    cron: "0 8 * * *"  # 8:00 AM daily
+    command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/briefing.py --send"
+    description: "Send daily learning briefing"
+
+  - name: "Weekly feedback processing"
+    cron: "0 9 * * 1"  # Mondays at 9:00 AM
+    command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/feedback.py --decay"
+    description: "Apply time decay to topic preferences"
+
+# Environment variables
+environment:
+  - name: "OLLAMA_HOST"
+    value: "localhost:11434"
+    description: "Ollama server endpoint"
+
+  - name: "CLAW_LEARNFEED_CONFIG"
+    value: "~/.openclaw/skills/claw-learnfeed/config.yaml"
+    description: "Configuration file path"
+
+# Dependencies
+dependencies:
+  python:
+    - "feedparser>=6.0.0"
+    - "requests>=2.25.0"
+    - "pyyaml>=6.0"
+    - "urllib3>=1.26.0"
+
+  system:
+    - name: "ollama"
+      description: "Local LLM runtime"
+      install_url: "https://ollama.ai/download"
+      check_command: "ollama --version"
+
+  optional:
+    - name: "git"
+      description: "For repository updates"
+      check_command: "git --version"
+
+# Testing commands
+testing:
+  commands:
+    - name: "Quick functionality test"
+      command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/collect_feeds.py --test"
+      description: "Test basic feed collection"
+
+    - name: "LLM integration test"
+      command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/summarize.py --test-ollama"
+      description: "Verify Ollama connection"
+
+    - name: "Full pipeline test"
+      command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/collect_feeds.py --run && python scripts/summarize.py --run && python scripts/briefing.py --preview"
+      description: "Test complete workflow"
+
+    - name: "Notification test"
+      command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/briefing.py --test-webhook"
+      description: "Test webhook notifications"
+
+# File permissions
+permissions:
+  directories:
+    - path: "~/.openclaw/skills/claw-learnfeed"
+      mode: "755"
+    - path: "~/.openclaw/workspace/.learnings"
+      mode: "755"
+
+  files:
+    - path: "~/.openclaw/skills/claw-learnfeed/config.yaml"
+      mode: "644"
+    - path: "~/.openclaw/skills/claw-learnfeed/scripts/*.py"
+      mode: "755"
+
+# Health checks
+health_checks:
+  - name: "Feed sources availability"
+    command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/collect_feeds.py --health"
+    interval: "1h"
+    description: "Check if RSS feeds are accessible"
+
+  - name: "LLM service status"
+    command: "cd ~/.openclaw/skills/claw-learnfeed && python scripts/summarize.py --test-ollama"
+    interval: "30m"
+    description: "Verify Ollama is running and accessible"
+
+  - name: "Disk space for feeds"
+    command: "df -h ~/.openclaw/skills/claw-learnfeed | tail -1 | awk '{print $4}' | grep -q 'G\|M' || echo 'Low disk space'"
+    interval: "6h"
+    description: "Check available storage space"
+
+# Backup configuration
+backup:
+  paths:
+    - "~/.openclaw/skills/claw-learnfeed/.learnings/"
+    - "~/.openclaw/skills/claw-learnfeed/config.yaml"
+    - "~/.openclaw/skills/claw-learnfeed/feeds/summarized/"
+
+  exclude:
+    - "*.tmp"
+    - "feeds/collected/"  # Raw feeds can be re-collected
+
+# Update mechanism
+updates:
+  check_url: "https://api.github.com/repos/openkrab/claw-learnfeed/releases/latest"
+  install_command: "cd ~/.openclaw/skills/claw-learnfeed && git pull origin main"
+
+# Troubleshooting
+troubleshooting:
+  common_issues:
+    - name: "Ollama connection failed"
+      solution: "Ensure Ollama is running with 'ollama serve' and model is pulled with 'ollama pull llama3:8b'"
+
+    - name: "No feeds collected"
+      solution: "Check internet connection and run 'python scripts/collect_feeds.py --health' to test feeds"
+
+    - name: "Briefing not sent"
+      solution: "Configure webhooks in config.yaml and test with 'python scripts/briefing.py --test-webhook'"
+
+    - name: "Poor content relevance"
+      solution: "Run feedback processing and adjust topic weights with 'python scripts/feedback.py --analytics'"
+
+  logs:
+    - "~/.openclaw/skills/claw-learnfeed/feeds/history/"
+    - "~/.openclaw/workspace/.learnings/FEEDBACK.md"
+
+  debug_commands:
+    - "python scripts/collect_feeds.py --test --source rss"
+    - "python scripts/summarize.py --test-ollama --verbose"
+    - "python scripts/briefing.py --preview --format json"

@@ -1,0 +1,199 @@
+# ClawLearnFeed Configuration
+# Personal learning feed settings - customize to your interests
+# Based on your GitHub profile: AI agents, trading, data engineering, Thailand focus
+
+# Core Topics (adjust based on your interests)
+topics:
+  # AI/ML Core
+  - "AI agents"
+  - "LLM RAG systems"
+  - "machine learning"
+  - "neural networks"
+
+  # Trading & Finance (from your AK47ScalperEA project)
+  - "algorithmic trading"
+  - "quantitative finance"
+  - "trading algorithms"
+  - "financial data analysis"
+
+  # Data Engineering (from your Scrape-Thai-Web project)
+  - "data engineering pipelines"
+  - "ETL processes"
+  - "data warehousing"
+  - "big data processing"
+
+  # Thailand Focus (from your ThailandLocation77DatabaseSQLServer project)
+  - "Thailand AI development"
+  - "Thai tech startups"
+  - "Thailand data science"
+  - "digital transformation Thailand"
+
+  # Security & Research (from your security research)
+  - "Rust security research"
+  - "cybersecurity"
+  - "blockchain security"
+
+# Content Sources (100% free, no API keys required)
+sources:
+  # RSS Feeds - High-quality, frequently updated sources
+  rss_feeds:
+    # AI/ML Research & News
+    - "https://aiweekly.co/rss"                    # Weekly AI news digest
+    - "https://ai.googleblog.com/atom.xml"         # Google AI research
+    - "https://blog.tensorflow.org/feeds/posts/default"  # TensorFlow updates
+    - "https://deepmind.com/blog/rss"              # DeepMind research
+    - "https://www.infoq.com/articles/rss"         # InfoQ AI trends
+    - "https://www.technologyreview.com/topic/artificial-intelligence/feed/"  # MIT Tech Review AI
+
+    # Trading & Finance
+    - "https://feeds.transistor.fm/ai-daily"       # AI Daily podcast (finance focus)
+    - "https://www.quantconnect.com/blog/rss"      # QuantConnect blog
+    - "https://www.quantnews.com/rss"              # Quant news
+    - "https://robotwealth.com/feed/"             # Robot Wealth (quant trading)
+
+    # Data Engineering
+    - "https://www.dataengineeringweekly.com/rss"  # Data Engineering Weekly
+    - "https://www.astronomer.io/blog/feed/"       # Apache Airflow blog
+    - "https://www.snowflake.com/feed/"            # Snowflake blog
+    - "https://databricks.com/feed"                # Databricks blog
+
+    # Thailand News & Tech
+    - "https://www.bangkokpost.com/rss/section/tech"  # Bangkok Post Tech
+    - "https://www.thaipbsworld.com/rss"           # Thai PBS World
+    - "https://techsauce.co/rss"                   # TechSauce Thailand
+    - "https://www.nationthailand.com/rss"         # Nation Thailand
+
+    # Security & Research
+    - "https://www.usenix.org/rss"                 # USENIX Security
+    - "https://www.schneier.com/feed/atom/"       # Schneier on Security
+
+  # YouTube Channels - Free video content
+  youtube_channels:
+    # AI Research & Tutorials
+    - "UCbfYPyITQ-7l4upoX8nvctg"  # Two Minute Papers (AI research summaries)
+    - "UCvjgXvBlbQiydffZU7m1_aw"  # Sentdex (Python/ML/trading)
+    - "UCYO_jab_esuFRV4b17AJtAw"  # 3Blue1Brown (math/ML visualizations)
+    - "UC4a-Gbdw7vOaccHmFo40b9g"  # Andrew Ng (ML fundamentals)
+    - "UCkzW5JSFwvKRjXABI-UTAkQ"  # Hugging Face (LLM/RAG tutorials)
+    - "UChugftqyt2NF8SMP6eVhf9A"  # Yannic Kilcher (AI paper reviews)
+
+    # Trading & Finance
+    - "UCvjgXvBlbQiydffZU7m1_aw"  # Quantopian (quantitative trading)
+    - "UCvjz4RlWnw2MVF9iDY7ZhVw"  # Robot Wealth (trading education)
+
+  # X/Twitter Keywords - Real-time discussions
+  x_keywords:
+    - "AI Thailand"
+    - "Thailand AI"
+    - "Thai developer"
+    - "LLM agents"
+    - "RAG systems"
+    - "algo trading"
+    - "quant finance"
+    - "data engineering"
+    - "machine learning research"
+    - "Thailand tech"
+    - "Rust security"
+
+# Ollama LLM Configuration (local, free)
+ollama:
+  model: "llama3:8b"           # Primary model (can be llama3, phi3, mistral)
+  endpoint: "http://localhost:11434"  # Default Ollama endpoint
+  fallback_model: "phi3:3.8b"  # Backup model if primary fails
+  temperature: 0.3            # Low temperature for consistent summaries
+  timeout: 60                 # Request timeout in seconds
+
+# Briefing Configuration
+briefing:
+  max_items: 5                # Items per daily briefing
+  language: "thai"            # "thai" or "english"
+  include_feedback: true      # Include feedback commands in briefing
+  time_format: "24h"          # Time format for scheduling
+
+# Content Summarization Settings
+summarization:
+  max_words: 150              # Maximum words per summary
+  language: "thai"            # Summary language ("thai" or "english")
+  relevance_threshold: 0.7    # Minimum relevance score (0-1)
+  include_key_insights: true  # Highlight key takeaways
+  preserve_links: true        # Keep original article links
+
+# Feedback & Learning Settings
+feedback:
+  learning_rate: 0.1          # How quickly to adjust preferences (0-1)
+  min_weight: 0.1             # Minimum topic weight
+  max_weight: 2.0             # Maximum topic weight
+  decay_factor: 0.95          # Weekly weight decay (reduce old preferences)
+  auto_learn: true            # Automatically learn from feedback
+
+# Collection Settings
+collection:
+  max_items_per_feed: 5       # Items to fetch per RSS feed
+  days_back: 1                # How many days back to collect
+  retry_attempts: 3           # HTTP retry attempts
+  request_timeout: 10         # HTTP request timeout (seconds)
+  rate_limit_delay: 0.5       # Delay between feed requests
+
+# Notification Settings
+notifications:
+  # Telegram webhook (get from @BotFather)
+  telegram_webhook: null       # "https://api.telegram.org/bot<TOKEN>/sendMessage"
+
+  # Discord webhook (create in server settings)
+  discord_webhook: null        # "https://discord.com/api/webhooks/..."
+
+  # Fallback to console if webhooks fail
+  console_fallback: true
+
+# Storage Settings
+storage:
+  input_dir: "feeds/collected"     # Raw feed storage
+  output_dir: "feeds/summarized"   # Processed summaries
+  history_dir: "feeds/history"     # Briefing history
+  learnings_dir: ".learnings"      # User feedback
+
+  # ClawMemory integration
+  clawmemory_enabled: true         # Store in vector database
+  vectorize_summaries: true        # Create embeddings for search
+
+# Scheduling (default cron times - adjust as needed)
+schedules:
+  collection: "0 6 * * *"      # 6:00 AM - collect feeds
+  summarization: "0 7 * * *"   # 7:00 AM - summarize content
+  briefing: "0 8 * * *"        # 8:00 AM - send briefing
+  feedback_decay: "0 9 * * 1"  # Mondays 9:00 AM - decay weights
+
+# Debug & Development
+debug:
+  verbose_logging: false       # Detailed logging
+  save_raw_feeds: true         # Keep raw feed data
+  test_mode: false             # Use test data instead of live feeds
+  mock_llm: false              # Use mock responses for testing
+
+# Advanced Settings (usually don't need to change)
+advanced:
+  http_headers:
+    "User-Agent": "ClawLearnFeed/1.0 (https://github.com/openkrab/claw-learnfeed)"
+
+  # Content filtering
+  exclude_patterns:            # Skip content matching these patterns
+    - "sponsored"
+    - "advertisement"
+    - "promo"
+
+  # Quality filters
+  min_content_length: 100      # Minimum article length
+  require_images: false        # Require articles to have images
+
+  # Performance
+  parallel_processing: true    # Process feeds in parallel
+  max_workers: 5               # Maximum parallel workers
+
+# Custom RSS Feeds (add your own)
+custom_feeds:
+  enabled: false
+  feeds: []
+  # Example:
+  # - name: "My Custom Feed"
+  #   url: "https://example.com/rss"
+  #   topics: ["custom topic"]

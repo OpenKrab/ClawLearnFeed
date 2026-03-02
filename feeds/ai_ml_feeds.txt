@@ -1,0 +1,25 @@
+# AI/ML RSS Feeds - High-quality sources for AI and machine learning content
+# All feeds are free and publicly accessible
+
+# Research & News
+https://aiweekly.co/rss
+https://ai.googleblog.com/atom.xml
+https://blog.tensorflow.org/feeds/posts/default
+https://deepmind.com/blog/rss
+https://www.infoq.com/articles/rss
+https://www.technologyreview.com/topic/artificial-intelligence/feed/
+
+# Academic & Papers
+https://arxiv.org/rss/cs.AI
+https://arxiv.org/rss/cs.LG
+https://export.arxiv.org/rss/cs.CL
+
+# Industry News
+https://venturebeat.com/ai/feed/
+https://techcrunch.com/tag/artificial-intelligence/feed/
+https://www.artificialintelligence-news.com/feed/
+
+# YouTube RSS equivalent (for reference):
+# Two Minute Papers: https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg
+# Sentdex: https://www.youtube.com/feeds/videos.xml?channel_id=UCfzlCWGWYyIQ0aLC5w48gBQ
+# 3Blue1Brown: https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw

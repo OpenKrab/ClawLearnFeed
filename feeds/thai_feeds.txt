@@ -1,0 +1,26 @@
+# Thailand RSS Feeds - Thai news and technology content
+# All feeds are free and publicly accessible
+
+# Major Thai News
+https://www.bangkokpost.com/rss
+https://www.bangkokpost.com/rss/section/tech
+https://www.thaipbsworld.com/rss
+https://www.nationthailand.com/rss
+https://www.khaosodenglish.com/rss
+
+# Thai Technology & Business
+https://techsauce.co/rss
+https://www.blognone.com/atom.xml
+https://www.springnews.co.th/feed/
+
+# Government & Education
+https://www.mict.go.th/rss.xml
+https://www.edt.go.th/rss
+
+# Business & Finance (Thailand)
+https://www.bangkokbiznews.com/rss/home
+https://www.thansettakij.com/rss/home
+
+# Note: Some Thai feeds may require UTF-8 encoding support
+# YouTube Thai tech channels (for reference):
+# TechSauce Thailand: https://www.youtube.com/feeds/videos.xml?channel_id=UCF4Wxdo7hG-6iHmvcu6Vvc

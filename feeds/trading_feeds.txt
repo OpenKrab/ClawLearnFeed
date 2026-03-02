@@ -1,0 +1,22 @@
+# Trading & Finance RSS Feeds
+# Specialized feeds for algorithmic trading and quantitative finance
+
+# Trading Platforms & Tools
+https://www.quantconnect.com/blog/rss
+https://www.quantnews.com/rss
+https://robotwealth.com/feed/
+https://www.quantpedia.com/feed/
+
+# Financial Data & APIs
+https://alphavantage.co/rss
+https://www.refinitiv.com/en/rss-feeds
+https://www.bloomberg.com/feed/podcast
+
+# Research & Analysis
+https://www.cfapubs.org/rss/doi/10.2469/faj.v75.n1.1
+https://www.risk.net/rss
+https://www.efmaefm.org/rss
+
+# YouTube Channels (for reference):
+# Quantopian: https://www.youtube.com/feeds/videos.xml?channel_id=UCvjgXvBlbQiydffZU7m1_aw
+# Robot Wealth: https://www.youtube.com/feeds/videos.xml?channel_id=UCvjz4RlWnw2MVF9iDY7ZhVw
