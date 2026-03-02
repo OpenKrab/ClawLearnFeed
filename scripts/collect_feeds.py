@@ -278,20 +278,47 @@ class FeedCollector:
         """Save collected items to JSON file"""
         filepath = os.path.join(self.output_dir, filename)
 
+        # Clean items to handle Unicode issues
+        cleaned_items = []
+        for item in items:
+            cleaned_item = {}
+            for key, value in item.items():
+                if isinstance(value, str):
+                    # Handle Unicode characters properly
+                    try:
+                        # Try to encode and decode to handle surrogates
+                        cleaned_value = value.encode('utf-8', errors='replace').decode('utf-8')
+                        cleaned_item[key] = cleaned_value
+                    except Exception:
+                        # Fallback: remove problematic characters
+                        cleaned_item[key] = ''.join(c for c in value if ord(c) < 65536)
+                else:
+                    cleaned_item[key] = value
+            cleaned_items.append(cleaned_item)
+
         # Add metadata
         data = {
             'metadata': {
                 'collected_at': datetime.now().isoformat(),
-                'total_items': len(items),
-                'sources': list(set(item['source'] for item in items))
+                'total_items': len(cleaned_items),
+                'sources': list(set(item['source'] for item in cleaned_items))
             },
-            'items': items
+            'items': cleaned_items
         }
 
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-
-        print(f"💾 Saved {len(items)} items to {filepath}")
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+            print(f"💾 Saved {len(cleaned_items)} items to {filepath}")
+        except Exception as e:
+            print(f"❌ Error saving to {filepath}: {e}")
+            # Try with ASCII fallback
+            try:
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=2, ensure_ascii=True)
+                print(f"💾 Saved {len(cleaned_items)} items to {filepath} (ASCII fallback)")
+            except Exception as e2:
+                print(f"❌ Failed to save even with ASCII fallback: {e2}")
 
     def check_feed_health(self) -> Dict[str, Any]:
         """Check health of all configured feeds"""
